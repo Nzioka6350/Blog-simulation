@@ -19,3 +19,9 @@ let notes = [
 }
 
 ]
+
+function getNotes()
+{
+    return notes
+}
+exports.getNotes = getNotes;
