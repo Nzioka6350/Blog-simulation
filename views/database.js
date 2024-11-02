@@ -25,3 +25,9 @@ function getNotes()
     return notes
 }
 exports.getNotes = getNotes;
+
+function getNote(id)
+{
+   return notes.find((note)=> note.id === id)
+}
+exports.getNote = getNote;

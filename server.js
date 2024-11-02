@@ -12,7 +12,13 @@ app.get('/notes',(req,res)=>{
    res.render('notes.ejs', {notes});
 })
 
-//Route for 
+//Route for single post
+app.get('/notes/:id',(req,res)=>{
+    const id = +req.params.id;
+    const note = database.getNote(id)
+    res.render("singleNote.ejs",{note})
+
+})
 
 
 

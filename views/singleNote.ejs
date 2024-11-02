@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-    <h1>Single post</h1>
+    <h1><%= note.title %></h1>
+    <p><%= note.content %></p>
+    <p><%= new Date(note.timeStamp) %></p>
+    <a href="/notes">Back</a>
 </body>
 </html>
