@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 app.use(express.static('public'));
 app.set('view engine','ejs');
+app.use(express.urlencoded({extended: true}))
 
 const database = require('./views/database');
 
@@ -25,7 +26,16 @@ app.get('/notes/:id',(req,res)=>{
 
 })
 
+//Route to get form to create note
+app.get('/newNote',(req,res)=>{
+    res.render('createnote.ejs')
+})
 
+//Route to post new note
+app.post('/addNote',(req,res)=>{
+    const data = req.body;
+    database.addNote(data);
+})
 
 app.listen(port,()=>{
     console.log(`server is running on port ${port}`)
