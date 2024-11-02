@@ -16,6 +16,11 @@ app.get('/notes',(req,res)=>{
 app.get('/notes/:id',(req,res)=>{
     const id = +req.params.id;
     const note = database.getNote(id)
+   
+    if(!note)
+    {
+        res.render("notFound.ejs")
+    }
     res.render("singleNote.ejs",{note})
 
 })
