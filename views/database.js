@@ -41,3 +41,4 @@ function addNote(data)
         timeStamp: Date.now()
     });
 }
+exports.addNote = addNote;
