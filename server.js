@@ -33,8 +33,9 @@ app.get('/newNote',(req,res)=>{
 
 //Route to post new note
 app.post('/addNote',(req,res)=>{
-    // const data = req.body;
-    // database.addNote(data);
+    const data = req.body;
+    database.addNote(data);
+    res.redirect("/notes")
 })
 
 app.listen(port,()=>{
