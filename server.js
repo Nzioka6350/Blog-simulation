@@ -9,7 +9,8 @@ const database = require('./views/database');
 
 // Route for getting all notes
 app.get('/notes',(req,res)=>{
-    const notes = database.getNotes();
+    const search = req.query.search;
+    const notes = database.getNotes(search);
    res.render('notes.ejs', {notes});
 })
 

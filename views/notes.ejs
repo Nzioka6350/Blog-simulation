@@ -9,6 +9,10 @@
 <body>
     <h1>All notes</h1>
     <ul>
+        <form action="/notes" method="GET">
+            <input type="text" name="search"  id="search" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
         <% notes.forEach(note => { %>
             <li>
                 <h2><%= note.title %></h2>
