@@ -20,9 +20,16 @@ let notes = [
 
             ]
 
-function getNotes()
+function getNotes(search)
 {
-    return notes
+    if(!search)
+    {
+        return notes
+    }
+
+    return notes.filter(
+        (note) => note.title.includes(search) || note.content.includes(search))
+    
 }
 exports.getNotes = getNotes;
 
