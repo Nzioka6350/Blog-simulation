@@ -38,6 +38,11 @@ app.post('/addNote',(req,res)=>{
     res.redirect("/notes")
 })
 
+//Route to delete specific note
+app.post('/note/:id/delete',(req,res)=>{
+    const id = req.params.id;
+})
+
 app.listen(port,()=>{
     console.log(`server is running on port ${port}`)
 })
