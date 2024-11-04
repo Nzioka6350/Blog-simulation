@@ -40,7 +40,7 @@ app.post('/addNote',(req,res)=>{
 
 //Route to delete specific note
 app.post('/note/:id/delete',(req,res)=>{
-    const id = req.params.id;
+    const id = +req.params.id;
     database.deleteNote(id);
     res.redirect('/notes')
 })
