@@ -42,3 +42,9 @@ function addNote(data)
     });
 }
 exports.addNote = addNote;
+
+function deleteNote(id)
+{
+    return notes.filter((note)=>note.id === id);
+}
+exports.deleteNote = deleteNote;
