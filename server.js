@@ -7,8 +7,6 @@ app.use(express.urlencoded({extended: true}))
 
 const database = require('./views/database');
 const mysql = require('mysql');
-import dotenv from "dotenv";
-dotenv.config();
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
