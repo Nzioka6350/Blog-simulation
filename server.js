@@ -8,15 +8,26 @@ app.use(express.urlencoded({extended: true}))
 const database = require('./views/database');
 const mysql = require('mysql');
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'MAKUENIkenya2002',
-    database: 'mydb'
+    host: "localhost",
+    user: "root",
+    password: "MAKUENIkenya2002",
+    database: "mydb"
 })
-connection.connect()
-
+connection.connect((err)=>{
+    if(err)
+    {
+        throwerr;
+    }
+    console.log("Successfully connected to the database.")
+})
+connection.query('SELECT * FROM users',(error,result)=>{
+    if(error)
+        {
+            console.log(err);
+        }
+        console.log(result);
+})
 connection.end();
-
   //Route to get all users
 app.get('/',(req,res)=>{
 
