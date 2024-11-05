@@ -6,6 +6,21 @@ app.set('view engine','ejs');
 app.use(express.urlencoded({extended: true}))
 
 const database = require('./views/database');
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'MAKUENIkenya2002',
+    database: 'mydb'
+})
+connection.connect()
+
+connection.end();
+
+  //Route to get all users
+app.get('/',(req,res)=>{
+
+})
 
 // Route for getting all notes
 app.get('/notes',(req,res)=>{
