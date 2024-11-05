@@ -7,6 +7,8 @@ app.use(express.urlencoded({extended: true}))
 
 const database = require('./views/database');
 const mysql = require('mysql');
+import dotenv from "dotenv";
+dotenv.config();
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -20,18 +22,26 @@ connection.connect((err)=>{
     }
     console.log("Successfully connected to the database.")
 })
-connection.query('SELECT * FROM users',(error,result)=>{
+connection.query('SELECT * FROM users WHERE id = 1',(error,result)=>{
     if(error)
         {
             console.log(err);
         }
         console.log(result);
 })
-connection.end();
+
   //Route to get all users
 app.get('/',(req,res)=>{
-
+    connection.query('SELECT * FROM users WHERE id = 1',(err,result)=>{
+        if(err)
+        {
+            console.error(err);
+            return res.json({message: "There was an issue"})
+        }
+        res.json(result)
+    })
 })
+
 
 // Route for getting all notes
 app.get('/notes',(req,res)=>{
