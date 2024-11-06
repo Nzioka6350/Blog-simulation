@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 const port = process.env.PORT  | 3000
 app.set('view engine', 'ejs');
+app.use(express.static('Public'))
 import {getNotes,getNote,createNote,deleteNote} from './database.js'
 
 //Route for all notes

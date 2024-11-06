@@ -8,5 +8,10 @@
 </head>
 <body>
         <h1>All Notes</h1>
+        <ul>
+            <% notes.forEach((note)=> { %>
+                <li><%= note.title %></li>
+            <%})%>
+        </ul>
 </body>
 </html>
