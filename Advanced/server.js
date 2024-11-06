@@ -13,11 +13,13 @@ const pool = mysql.createPool({
 
 }).promise()
 
+async function getNotes(){
+    const [rows] = await  pool.query("SELECT * FROM notes");
+    return rows
+}
 
-const notes = await  pool.query("SELECT * FROM notes");
+const notes = await getNotes();
 console.log(notes);
-
-
 
 
 
