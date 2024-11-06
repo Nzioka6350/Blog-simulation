@@ -24,7 +24,7 @@ async function getNote(id){
          WHERE id = ?
         `,[id]
     )
-    return rows;
+    return rows[0];
 }
 const note = await getNote(4);
 console.log(note);
