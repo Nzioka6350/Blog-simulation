@@ -11,7 +11,26 @@ app.get('/notes', async(req,res)=>{
     res.render('Allnotes.ejs',{notes})
 })
 //Route for single note
-
+app.get('/notes/:id', async(req,res)=>{
+    const id = Number(req.params.id);
+    if(isNaN(id))
+    {
+            return res.status(400).json({message:"Invalid format"})
+    }
+    try{
+        const note = await getNote(id);
+        if(!note)
+        {
+            return res.status(404).render("NotFound.ejs")
+        }
+        res.render("Singlenote.ejs",{note})
+    }catch(err){
+        console.log(err);
+        res.status(500).json({message:"Internal server error"})
+    }
+    
+    
+})
 //Route for Inserting Note
 
 //Route for Deleting Note
