@@ -8,4 +8,18 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
-})
+}).promise()
+
+export async function getNotes()
+{
+    const [rows] = await db.query('SELECT * FROM notes');
+    return rows
+}
+
+export async function getNote(id)
+{
+    const note = await db.query(`
+        SELECT * FROM notes
+        WHERE id = ?
+        `,[id])
+}
