@@ -24,7 +24,7 @@ export async function getNote(id)
         SELECT * FROM notes
         WHERE id = ?
         `,[id])
-    return rows;
+    return rows[0];
 
 }
 // Function to insert into the table
@@ -64,5 +64,5 @@ try{
 }
 
 //Test
-const note = await deleteNote(10);
+const note = await getNote(1);
 console.log(note)
