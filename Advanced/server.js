@@ -17,9 +17,17 @@ async function getNotes(){
     const [rows] = await  pool.query("SELECT * FROM notes");
     return rows
 }
-
-const notes = await getNotes();
-console.log(notes);
+async function getNote(id){
+    const [rows] = await pool.query(
+        `
+        SELECT * FROM notes
+         WHERE id = ?
+        `,[id]
+    )
+    return rows;
+}
+const note = await getNote(4);
+console.log(note);
 
 
 
