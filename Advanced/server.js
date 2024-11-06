@@ -4,7 +4,16 @@ const port = process.env.PORT  | 3000
 app.set('view engine', 'ejs');
 import {getNotes,getNote,createNote,deleteNote} from './database.js'
 
+//Route for all notes
+app.get('/notes', async(req,res)=>{
+    const notes = await getNotes();
+    res.render('Allnotes.ejs',{notes})
+})
+//Route for single note
 
+//Route for Inserting Note
+
+//Route for Deleting Note
 
 
 app.listen(port,()=>{
