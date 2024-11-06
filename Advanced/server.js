@@ -12,8 +12,15 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME
 
 }).promise()
+
+
 const notes = await  pool.query("SELECT * FROM notes");
 console.log(notes);
+
+
+
+
+
 app.listen(port,()=>{
     console.log("Application running on port",{port})
 })
