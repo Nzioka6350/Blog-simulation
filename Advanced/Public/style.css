@@ -2,3 +2,6 @@ body{
     font-family: 'Courier New', Courier, monospace;
     margin: auto;
 }
+ul {
+    list-style-type: none;
+}
