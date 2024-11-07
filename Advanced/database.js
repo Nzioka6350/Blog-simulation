@@ -23,7 +23,7 @@ try{
             SELECT * FROM notes
             WHERE title LIKE ? OR content LIKE ? 
         `;
-        const params = [`%searchTerm%`,`searchTerm`]
+        const params = [`%${searchTerm}%`, `%${searchTerm}%`]
         const[rows] = await db.query(query,params)
         return rows
 }catch(err){
