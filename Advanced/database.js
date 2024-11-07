@@ -26,9 +26,9 @@ try{
         const params = [`%${searchTerm}%`, `%${searchTerm}%`]
         const[rows] = await db.query(query,params)
         return rows
-}catch(err){
-    console.error(err)
-}
+    }catch(err){
+        console.error(err)
+    }
    
 }
 
