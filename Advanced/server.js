@@ -1,10 +1,12 @@
 import express from 'express';
+import bodyParser from 'body-parser'
 const app = express();
 const port = process.env.PORT  | 3000
 app.set('view engine', 'ejs');
 app.use(express.static('Public'))
 import {getNotes,getNote,createNote,deleteNote} from './database.js'
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 //Route for all notes
 app.get('/notes', async(req,res)=>{
     const notes = await getNotes();
@@ -36,8 +38,15 @@ app.get('/createNew',(req,res)=>{
     res.render('Newnote.ejs')
 })
 //Route for Inserting Note
-app.post('/newNote',(req,res)=>{
-    
+app.post('/newNote', async (req,res)=>{
+    const {title,content} = req.body;
+    try{
+        const note = await createNote(title,content);
+        res.redirect('/notes')
+    }catch(err){
+        console.log(err);
+        res.status(500).json({message:"Internal server error"})
+    }
 })
 //Route for Deleting Note
 

@@ -36,11 +36,7 @@ export async function createNote(title,content)
         VALUES(?,?)
         `,[title,content]
     )
-    return{
-        id:rows.insertId,
-        title,
-        content
-    }
+    return rows
 }
 
 export async function deleteNote(id)
