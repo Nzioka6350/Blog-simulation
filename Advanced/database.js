@@ -11,10 +11,25 @@ const db = mysql.createPool({
 }).promise()
 
 //Function to get all notes
-export async function getNotes()
+export async function getNotes(searchTerm)
 {
-    const [rows] = await db.query('SELECT * FROM notes');
-    return rows
+try{
+    if(!searchTerm)
+    {
+        const [rows] = await db.query('SELECT * FROM notes');
+        return rows
+    }
+        const query = `
+            SELECT * FROM notes
+            WHERE title LIKE ? OR content LIKE ? 
+        `;
+        const params = [`%searchTerm%`,`searchTerm`]
+        const[rows] = await db.query(query,params)
+        return rows
+}catch(err){
+    console.error(err)
+}
+   
 }
 
 //Function to get one note

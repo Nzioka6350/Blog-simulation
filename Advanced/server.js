@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 //Route for all notes
 app.get('/notes', async(req,res)=>{
-    const notes = await getNotes();
+    const searchTerm = req.query.searchTerm || '';
+    const notes = await getNotes(searchTerm);
     res.render('Allnotes.ejs',{notes})
 })
 //Route for single note
