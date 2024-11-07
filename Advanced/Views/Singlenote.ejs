@@ -11,5 +11,8 @@
         <p><%=note.content%></p>
         <p><%= note.created_at%></p>
         <a href="/notes">Back</a>
+        <form action="/note/:id/delete" method="POST">
+            <button type="submit">Delete Note</button>
+        </form>
 </body>
 </html>

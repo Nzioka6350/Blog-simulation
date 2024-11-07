@@ -49,7 +49,19 @@ app.post('/newNote', async (req,res)=>{
     }
 })
 //Route for Deleting Note
-
+app.post('/note/:id/delete', async(req,res)=>{
+    const id = +req.params.id;
+    if(isNaN(id))
+        {
+            return res.status(400).json({message:"Invalid format"})
+        }
+    try{
+       const note = await deleteNote(id);
+    res.redirect('/notes')
+    }catch(err){
+        console.log(err)
+    }
+})
 
 app.listen(port,()=>{
     console.log("Application running on port",{port})
