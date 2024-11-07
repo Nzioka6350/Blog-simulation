@@ -36,7 +36,9 @@ app.get('/createNew',(req,res)=>{
     res.render('Newnote.ejs')
 })
 //Route for Inserting Note
-
+app.post('/newNote',(req,res)=>{
+    
+})
 //Route for Deleting Note
 
 
