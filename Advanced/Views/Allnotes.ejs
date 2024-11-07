@@ -10,7 +10,7 @@
         <h1>All Notes</h1>
         <ul>
             <% notes.forEach((note)=> { %>
-                <li><%= note.title %></li>
+                <li><h1><%= note.title %></li></h1>
                 <li><%= note.content.substring(0,5)%>.....</li>
                 <li><%= note.created_at %></li>
                 <a href="/notes/<%= note.id %>">Read More</a>
