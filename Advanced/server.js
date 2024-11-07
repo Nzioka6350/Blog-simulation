@@ -21,7 +21,7 @@ app.get('/notes/:id', async(req,res)=>{
         const note = await getNote(id);
         if(!note)
         {
-            return res.status(404).render("NotFound.ejs")
+            return res.status(404).render("Notfound.ejs")
         }
         res.render("Singlenote.ejs",{note})
     }catch(err){
