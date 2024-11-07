@@ -52,7 +52,7 @@ try{
     {
         return{ message: "ID not found"}
     }
-    return {message:" Note successfully deleted"}
+    return {success: true,message:" Note successfully deleted"}
     }catch(error){
     console.error("Errors",error)
     return {message: "Error deleting note", error: error.message};

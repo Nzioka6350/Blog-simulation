@@ -56,10 +56,15 @@ app.post('/note/:id/delete', async(req,res)=>{
             return res.status(400).json({message:"Invalid format"})
         }
     try{
-       const note = await deleteNote(id);
-    res.redirect('/notes')
+        const note = await deleteNote(id);
+        if(!note.success)
+        {
+            return res.status(404).json({message:note.message})
+        }
+         res.redirect('/notes')
     }catch(err){
         console.log(err)
+        res.status(500).json({ message: "Failed to delete note" });
     }
 })
 
