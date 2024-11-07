@@ -31,6 +31,10 @@ app.get('/notes/:id', async(req,res)=>{
     
     
 })
+//Route to get creating note form
+app.get('/createNew',(req,res)=>{
+    res.render('CreateNote.ejs')
+})
 //Route for Inserting Note
 
 //Route for Deleting Note
