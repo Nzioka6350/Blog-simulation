@@ -14,6 +14,12 @@ export function getUser(id)
 {
 
 }
+export async function createUser(username,email,password){
+    const [rows] = await db.query(`
+        INSERT INTO users(username,email,password) VALUES(?,?,?)
+        `,[username,email,password])
+        return rows;
+}
 export function getAllUsers()
 {
 
@@ -28,5 +34,5 @@ export function getNotes()
 }
 export function createNote()
 {
-    
+
 }
