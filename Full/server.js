@@ -4,10 +4,11 @@ const port = 3000;
 app.set('view engine','ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
-import {createUser} from'./database.js';
+import {createUser, getAllUsers} from'./database.js';
 //Start of codes
 app.get('/auth/login',(req,res)=>{
-    res.render('login.ejs')
+    const data = getAllUsers()
+    res.render('login.ejs',{data})
 })
 app.get('/auth/register',(req,res)=>{
     res.render('register.ejs')

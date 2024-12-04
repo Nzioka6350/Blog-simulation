@@ -20,9 +20,14 @@ export async function createUser(username,email,password){
         `,[username,email,password])
         return rows;
 }
-export function getAllUsers()
+export async function getAllUsers()
 {
-
+    const [rows] =db.query(
+        `
+        SELECT *FROM users
+        `
+    )
+    return rows;
 }
 export function getNote(id)
 {
