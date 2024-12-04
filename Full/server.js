@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 app.set('view engine','ejs')
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }));
 //Start of codes
 app.get('/auth/login',(req,res)=>{
     res.render('login.ejs')
