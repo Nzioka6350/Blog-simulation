@@ -2,3 +2,11 @@ body{
     width: 800px;
     margin: auto;
 }
+.signContainer{
+    display: flex;
+    flex-direction: column;
+}
+.formdesign{
+    display: flex;
+    flex-direction: column;
+}
