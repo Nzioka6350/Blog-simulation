@@ -9,6 +9,14 @@
     <div class="signContainer">
         <h1>Register</h1>
         <form action="/auth/signup" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Enter your username...." required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email...." required/>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter your password...." required/>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" placeholder="Confirm your password...." required/>
 
         </form>
     </div>
