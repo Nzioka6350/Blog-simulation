@@ -22,7 +22,7 @@ export async function createUser(username,email,password){
 }
 export async function getAllUsers()
 {
-    const [rows] =db.query(
+    const [rows] = await db.query(
         `
         SELECT *FROM users
         `

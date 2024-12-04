@@ -6,8 +6,17 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="loginContainer">
+    <div class="signContainer">
         <h1>Login</h1>
+        <ul>
+            <% if(users && users.length >0){%>
+                <% users.forEach((user)=>{%>
+                    <li><%=user.username%></li>
+                <%})%>
+           <% } else {%>
+            <li>No user found</li>
+           <%}%>
+        </ul>
     </div>
     
 </body>

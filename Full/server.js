@@ -7,8 +7,8 @@ app.use(express.urlencoded({ extended: true }));
 import {createUser, getAllUsers} from'./database.js';
 //Start of codes
 app.get('/auth/login',(req,res)=>{
-    const data = getAllUsers()
-    res.render('login.ejs',{data})
+    const users = getAllUsers()
+    res.render('login.ejs',{users})
 })
 app.get('/auth/register',(req,res)=>{
     res.render('register.ejs')
