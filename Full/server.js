@@ -7,8 +7,12 @@ app.set('view engine','ejs')
 app.get('/auth/login',(req,res)=>{
     res.render('login.ejs')
 })
-
-
+app.get('/auth/register',(req,res)=>{
+    res.render('register.ejs')
+})
+app.post('/auth/signup',(req,res)=>{
+    
+})
 
 
 //listening
